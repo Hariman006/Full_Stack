@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - To-Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: #ff8c42;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+        .header {
+            background: black;
+            padding: 35px 40px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .header h1 {
+            color: #ff8c42;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: #ffffff;
+            font-size: 1em;
+        }
+        .stats-section {
+            background: rgb(0, 0, 0);
+            padding: 25px 40px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stats {
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .stats .count {
+            color: #ff8c42;
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            background: #555555;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        .filter-btn {
+            background: transparent;
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .filter-btn:hover {
+            color: #333;
+        }
+        .filter-btn.active {
+            background: #ff8c42;
+            color: white;
+        }
+        .todo-card {
+            background: rgb(0, 0, 0);
+            border-radius: 12px;
+            padding: 30px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+        }
+        .todo-list {
+            list-style: none;
+        }
+        .todo-item {
+            background: #000000;
+            padding: 18px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            border-color: #ff8c42;
+            color: white;
+        }
+        .todo-item:hover {
+            background: #5a5959;
+            border-color: #ff8c42;
+        }
+        .todo-item.completed {
+            background: #000000;
+            border-color: #484848;
+        }
+        .todo-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #ff8c42;
+            flex-shrink: 0;
+        }
+        .todo-text {
+            flex: 1;
+            color: #ffffff;
+            font-size: 1em;
+            transition: all 0.2s ease;
+        }
+        .todo-item.completed .todo-text {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .delete-btn {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #484848;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        .delete-btn:hover {
+            background: #fee;
+            border-color: #fcc;
+            color: #ff8c42;
+        }
+        .add-section {
+            background: rgb(0, 0, 0);
+            padding: 25px 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .add-todo-form {
+            display: flex;
+            gap: 12px;
+        }
+        .add-todo-input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #000000;
+            color: #5a5959;
+            font-size: 1em;
+            transition: all 0.2s ease;
+        }
+        .add-todo-input:focus {
+            outline: none;
+            border-color: #ff8c42;
+            background: #5a5959;
+        }
+        .add-todo-input::placeholder {
+            color: #999;
+        }
+        .add-btn {
+            background: #ff8c42;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .add-btn:hover {
+            background: #ff7a28;
+        }
+        .add-btn:active {
+            transform: scale(0.98);
+        }
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: #999;
+            font-size: 1em;
+        }
+        .empty-state-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #ff8c42;
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .header,
+            .stats-section,
+            .todo-card,
+            .add-section {
+                padding: 20px;
+            }
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+            .filter-buttons {
+                width: 100%;
+                justify-content: stretch;
+            }
+            .filter-btn {
+                flex: 1;
+            }
+            .add-todo-form {
+                flex-direction: column;
+            }
+            .add-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body ng-controller="TodoController">
+    <div class="container">
+        <div class="header">
+            <h1>TaskMaster</h1>
+            <div class="subtitle">Organize your tasks efficiently</div>
+        </div>
+        <div class="stats-section">
+            <div class="stats-bar">
+                <div class="stats">
+                    <span class="count">{{ getRemainingCount() }}</span> of <span class="count">{{ schedule.length }}</span> remaining
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn" ng-class="{active: filter === 'all'}" ng-click="setFilter('all')">All</button>
+                    <button class="filter-btn" ng-class="{active: filter === 'pending'}" ng-click="setFilter('pending')">Pending</button>
+                    <button class="filter-btn" ng-class="{active: filter === 'completed'}" ng-click="setFilter('completed')">Completed</button>
+                </div>
+            </div>
+        </div>
+        <div class="todo-card" ng-if="getFilteredTodos().length > 0">
+            <ul class="todo-list">
+                <li ng-repeat="todo in getFilteredTodos()" class="todo-item" ng-class="{completed: todo.completed}">
+                    <input type="checkbox" ng-model="todo.completed">
+                    <span class="todo-text">{{ todo.work }}</span>
+                    <button class="delete-btn" ng-click="deleteTodo($index)">Delete</button>
+                </li>
+            </ul>
+        </div>
+        <div class="todo-card" ng-if="getFilteredTodos().length === 0">
+            <div class="empty-state">
+                <div class="empty-state-icon">✓</div>
+                <div>{{ getEmptyMessage() }}</div>
+            </div>
+        </div>
+        <div class="add-section">
+            <div class="add-todo-form">
+                <input 
+                    type="text" 
+                    class="add-todo-input"
+                    ng-model="todoWork" 
+                    placeholder="Add new task here..."
+                    ng-keypress="handleKeyPress($event)">
+                <button class="add-btn" ng-click="addNew()">Add Task</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        var app = angular.module('todoApp', []);
+        app.controller('TodoController', function($scope) {
+            $scope.schedule = [
+                { work: 'Complete Mini Project works', completed: true },
+                { work: 'Review the project requirements', completed: false },
+                { work: 'Prepare a new dish', completed: false },
+                { work: 'Call my Bros', completed: false },
+                { work: 'Gaming Night !!!', completed: false}
+            ];
+            $scope.todoWork = '';
+            $scope.filter = 'all';
+            $scope.addNew = function() {
+                if ($scope.todoWork.trim() !== '') {
+                    $scope.schedule.push({
+                        work: $scope.todoWork,
+                        completed: false
+                    });
+                    $scope.todoWork = '';
+                }
+            };
+            $scope.deleteTodo = function(index) {
+                var filteredTodos = $scope.getFilteredTodos();
+                var todoToDelete = filteredTodos[index];
+                var originalIndex = $scope.schedule.indexOf(todoToDelete);
+                $scope.schedule.splice(originalIndex, 1);
+            };
+            $scope.getRemainingCount = function() {
+                return $scope.schedule.filter(function(todo) {
+                    return !todo.completed;
+                }).length;
+            };
+            $scope.setFilter = function(filterType) {
+                $scope.filter = filterType;
+            };
+            $scope.getFilteredTodos = function() {
+                if ($scope.filter === 'pending') {
+                    return $scope.schedule.filter(function(todo) {
+                        return !todo.completed;
+                    });
+                } else if ($scope.filter === 'completed') {
+                    return $scope.schedule.filter(function(todo) {
+                        return todo.completed;
+                    });
+                }
+                return $scope.schedule;
+            };
+            $scope.getEmptyMessage = function() {
+                if ($scope.filter === 'completed') {
+                    return 'No completed tasks yet. Start checking off your todos!';
+                } else if ($scope.filter === 'pending') {
+                    return 'All tasks completed! Great job!';
+                }
+                return 'No tasks yet. Add your first task to get started!';
+            };
+            $scope.handleKeyPress = function(event) {
+                if (event.keyCode === 13) {
+                    $scope.addNew();
+                }
+            };
+        });
+    </script>
+</body>
+</html>

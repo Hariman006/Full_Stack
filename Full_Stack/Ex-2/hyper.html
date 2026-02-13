@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hyper - Engine & Physics Programmer - TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --off-white: #F8F9FA;
+      --text-dark: #1a1a1a;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--dark-pista) 0%, var(--pista-green) 50%, var(--dark-pista) 100%);
+      color: var(--text-dark);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .back-btn {
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--dark-pista);
+      transform: translateX(-5px);
+      color: white;
+    }
+
+    .profile-card {
+      background: var(--white);
+      border: 3px solid var(--accent-green);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .profile-header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 3px solid var(--pista-green);
+      margin-bottom: 2rem;
+    }
+
+    .profile-avatar {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, var(--accent-green), var(--dark-pista));
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      border: 4px solid var(--accent-green);
+    }
+
+    h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      color: var(--accent-green);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .role {
+      font-size: 1.3rem;
+      color: var(--dark-pista);
+      font-weight: 700;
+    }
+
+    .bio-section h3 {
+      font-family: 'Exo 2', sans-serif;
+      color: var(--accent-green);
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-badge {
+      background: var(--pista-green);
+      color: var(--text-dark);
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 700;
+      border: 2px solid var(--accent-green);
+    }
+
+    .achievements {
+      list-style: none;
+      padding: 0;
+    }
+
+    .achievements li {
+      padding: 0.8rem 0;
+      border-bottom: 2px solid var(--pista-green);
+    }
+
+    .achievements li:last-child {
+      border-bottom: none;
+    }
+
+    .achievements i {
+      color: var(--accent-green);
+      margin-right: 0.8rem;
+    }
+
+    .code-block {
+      background: #1a1a1a;
+      color: var(--pista-green);
+      padding: 1rem;
+      border-radius: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="profile-card">
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <i class="bi bi-cpu-fill"></i>
+        </div>
+        <h1>Hyper</h1>
+        <p class="role">Engine & Physics Programmer</p>
+      </div>
+
+      <div class="bio-section">
+        <h3>About</h3>
+        <p>
+          Hyper is TechNova's technical wizard, responsible for building and optimizing the game engines 
+          that power our titles. With deep expertise in graphics programming, physics simulation, and 
+          performance optimization, Hyper ensures our games run at peak performance across all platforms. 
+          A true low-level programming expert who speaks in frame rates and milliseconds.
+        </p>
+
+        <h3>Expertise</h3>
+        <div class="skills">
+          <span class="skill-badge">C++ / C#</span>
+          <span class="skill-badge">Unreal Engine</span>
+          <span class="skill-badge">Unity</span>
+          <span class="skill-badge">Physics Simulation</span>
+          <span class="skill-badge">Graphics Programming</span>
+          <span class="skill-badge">Performance Optimization</span>
+          <span class="skill-badge">Shader Development</span>
+          <span class="skill-badge">Networking</span>
+        </div>
+
+        <h3>Key Achievements</h3>
+        <ul class="achievements">
+          <li><i class="bi bi-lightning-fill"></i> Optimized game engine achieving 60 FPS on mobile devices</li>
+          <li><i class="bi bi-lightning-fill"></i> Developed custom physics engine with 10x performance improvement</li>
+          <li><i class="bi bi-lightning-fill"></i> Created proprietary rendering pipeline reducing load times by 70%</li>
+          <li><i class="bi bi-lightning-fill"></i> Built cross-platform multiplayer infrastructure for 100K+ concurrent users</li>
+          <li><i class="bi bi-lightning-fill"></i> Contributor to open-source game engine projects</li>
+        </ul>
+
+        <h3>Technical Philosophy</h3>
+        <p class="fst-italic" style="background: var(--pista-green); padding: 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent-green);">
+          "Performance is not just about speed—it's about creating seamless experiences where technology 
+          becomes invisible. Every frame matters. Every millisecond counts. Optimization is an art form."
+        </p>
+
+        <h3>Specializations</h3>
+        <ul class="achievements">
+          <li><i class="bi bi-gear-fill"></i> Real-time physics and collision detection</li>
+          <li><i class="bi bi-gear-fill"></i> GPU programming and shader optimization</li>
+          <li><i class="bi bi-gear-fill"></i> Multi-threaded game architecture</li>
+          <li><i class="bi bi-gear-fill"></i> Memory management and profiling</li>
+          <li><i class="bi bi-gear-fill"></i> Low-latency networking systems</li>
+        </ul>
+
+        <h3>Code Sample</h3>
+        <div class="code-block">
+// Optimized collision detection algorithm<br>
+// Average O(log n) performance with spatial partitioning<br>
+void CheckCollisions(Entity* entities, int count) {<br>
+&nbsp;&nbsp;QuadTree.Update(entities);<br>
+&nbsp;&nbsp;for (auto& entity : nearbyEntities) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ResolvePhysics(entity);<br>
+&nbsp;&nbsp;}<br>
+}
+        </div>
+
+        <h3>Contact</h3>
+        <p>
+          <i class="bi bi-envelope-fill" style="color: var(--accent-green);"></i> 
+          <a href="mailto:hyper@technova.games" style="color: var(--accent-green); text-decoration: none;">hyper@technova.games</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

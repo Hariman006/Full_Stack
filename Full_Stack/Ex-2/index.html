@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --off-white: #F8F9FA;
+      --text-dark: #1a1a1a;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--text-dark);
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--white);
+      border-bottom: 3px solid var(--pista-green);
+      padding: 1.2rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--accent-green) !important;
+      letter-spacing: -1px;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      color: var(--text-dark) !important;
+      font-weight: 700;
+      margin: 0 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--accent-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--pista-green) 0%, var(--white) 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: var(--dark-pista);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-30px) translateX(20px); }
+    }
+
+    .hero h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: slideInLeft 1s ease;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .accent {
+      color: var(--accent-green);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-dark);
+      opacity: 0.8;
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Sections */
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--accent-green);
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--pista-green);
+    }
+
+    /* Cards */
+    .card {
+      background-color: var(--off-white);
+      border: 3px solid var(--pista-green);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px var(--shadow);
+      border-color: var(--accent-green);
+    }
+
+    .card i {
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover i {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .card h5 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 1rem;
+    }
+
+    .card p {
+      color: var(--text-dark);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    /* Game Cards */
+    .game-card {
+      background: linear-gradient(135deg, var(--pista-green) 0%, var(--white) 100%);
+      border: 3px solid var(--accent-green);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .game-card:hover::before {
+      left: 100%;
+    }
+
+    .game-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px var(--shadow);
+    }
+
+    .game-card h5 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      color: var(--accent-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .game-tag {
+      display: inline-block;
+      background: var(--accent-green);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+    }
+
+    /* About Section */
+    #about {
+      background: linear-gradient(to right, var(--off-white), var(--pista-green));
+    }
+
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Testimonials */
+    #testimonials {
+      background-color: var(--pista-green);
+    }
+
+    .testimonial {
+      background: var(--white);
+      border-left: 4px solid var(--accent-green);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      font-style: italic;
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateX(10px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--accent-green);
+      color: white;
+      padding: 2rem 0;
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">TechNova</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">Studio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">What We Create</a></li>
+        <li class="nav-item"><a class="nav-link" href="#team">Developers</a></li>
+        <li class="nav-item"><a class="nav-link" href="#games">Games</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero text-center">
+  <div class="container position-relative">
+    <h1>Tech<span class="accent">Nova</span></h1>
+    <h1>Forging the <span class="accent">Future of Gaming</span></h1>
+    <p class="mt-3">High-performance games built for speed, skill, and immersion</p>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="section-padding">
+  <div class="container text-center">
+    <h2 class="section-title">About Our Studio</h2>
+    <p class="mt-4">
+      TechNova Studios is an independent game development company focused on
+      creating fast-paced, competitive, and visually striking games for modern platforms.
+      We aim to deliver high-performance gameplay experiences that combine creativity, technology, and player engagement.
+    </p>
+  </div>
+</section>
+
+<!-- Services / What We Create -->
+<section id="services" class="section-padding">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">What We Create</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-4 text-center" onclick="window.location.href='pc-console.html'">
+          <i class="bi bi-controller fs-1 accent"></i>
+          <h5>PC & Console Games</h5>
+          <p>High-performance AAA-style gameplay</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4 text-center" onclick="window.location.href='mobile.html'">
+          <i class="bi bi-phone fs-1 accent"></i>
+          <h5>Mobile Games</h5>
+          <p>Optimized, fast, and addictive experiences</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4 text-center" onclick="window.location.href='ar-vr.html'">
+          <i class="bi bi-headset-vr fs-1 accent"></i>
+          <h5>AR / VR Experiences</h5>
+          <p>Immersive next-gen gaming worlds</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="section-padding">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">Our Developers</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <div class="card p-4" onclick="window.location.href='eren.html'">
+          <i class="bi bi-person-badge fs-1 accent"></i>
+          <h5>Eren</h5>
+          <p>Game Director</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4" onclick="window.location.href='victus.html'">
+          <i class="bi bi-person-badge fs-1 accent"></i>
+          <h5>Victus</h5>
+          <p>Lead Game Designer</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4" onclick="window.location.href='hyper.html'">
+          <i class="bi bi-person-badge fs-1 accent"></i>
+          <h5>Hyper</h5>
+          <p>Engine & Physics Programmer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Games -->
+<section id="games" class="section-padding" style="background: linear-gradient(to bottom, var(--white), var(--pista-green));">
+  <div class="container">
+    <h2 class="text-center section-title mb-5">Our Games</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="game-card text-center" onclick="window.location.href='gta5.html'">
+          <i class="bi bi-joystick fs-1" style="color: var(--accent-green);"></i>
+          <h5>GTA 5</h5>
+          <p>Open-world action-adventure masterpiece</p>
+          <span class="game-tag">ACTION</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="game-card text-center" onclick="window.location.href='freefire.html'">
+          <i class="bi bi-trophy fs-1" style="color: var(--accent-green);"></i>
+          <h5>Free Fire</h5>
+          <p>Ultimate battle royale survival experience</p>
+          <span class="game-tag">BATTLE ROYALE</span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="game-card text-center" onclick="window.location.href='backrooms.html'">
+          <i class="bi bi-eye fs-1" style="color: var(--accent-green);"></i>
+          <h5>Backrooms Escape</h5>
+          <p>Survive the endless maze of horror</p>
+          <span class="game-tag">HORROR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="section-padding text-center">
+  <div class="container">
+    <h2 class="section-title mb-5">Player Reviews</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="testimonial">
+          "TechNova games are fast, intense, and visually stunning — pure adrenaline!"
+        </div>
+        <div class="testimonial">
+          "Smooth gameplay, stunning visuals, and zero lag — TechNova really delivers."
+        </div>
+        <div class="testimonial">
+          "Every level feels intense and well designed. You can feel the quality."
+        </div>
+        <div class="testimonial">
+          "TechNova knows how to keep players hooked with thrilling gameplay."
+        </div>
+        <div class="testimonial">
+          "Pure fun, great mechanics, and an adrenaline rush from start to finish."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center">
+  <p class="mb-0">
+    © 2026 TechNova Studios. All Rights Reserved.
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

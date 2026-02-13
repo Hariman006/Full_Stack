@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>My Portfolio</title>
+</head>
+
+<body class="bg-dark text-white">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black px-3">
+    <span class="navbar-brand">My Portfolio</span>
+</nav>
+
+<div class="container text-center mt-5">
+    <h1 id="studentName"></h1>
+    <p class="text-secondary" id="rollNo"></p>
+</div>
+
+<hr class="border-secondary">
+
+<div class="container mt-4">
+
+    <!-- Skills -->
+    <div class="dropdown mb-4">
+        <button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+            Skills
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item">Python</li>
+            <li class="dropdown-item">SQL</li>
+            <li class="dropdown-item">HTML</li>
+            <li class="dropdown-item">CSS</li>
+        </ul>
+    </div>
+
+    <!-- Projects -->
+    <ul class="list-group">
+        <li class="list-group-item bg-dark text-white">AI Related Projects</li>
+        <li class="list-group-item bg-dark text-white">Full Stack Based Project</li>
+    </ul>
+
+</div>
+
+<script>
+    // Get data from URL
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const roll = params.get("roll");
+
+    document.getElementById("studentName").textContent = name;
+    document.getElementById("rollNo").textContent = "Roll No: " + roll;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

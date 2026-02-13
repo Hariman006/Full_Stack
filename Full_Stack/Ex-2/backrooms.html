@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Backrooms Escape - TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --text-dark: #1a1a1a;
+      --horror-yellow: #E8D9A7;
+      --horror-dark: #2b2b2b;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--horror-dark) 0%, #4a4a4a 50%, var(--accent-green) 100%);
+      color: var(--white);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin-top: 50px;
+    }
+
+    .back-btn {
+      background: var(--pista-green);
+      color: var(--text-dark);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--white);
+      transform: translateX(-5px);
+    }
+
+    .game-header {
+      background: linear-gradient(135deg, var(--horror-yellow), var(--pista-green));
+      color: var(--text-dark);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      text-align: center;
+      border: 4px solid var(--horror-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+    }
+
+    .game-header h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--horror-dark);
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .game-tags {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .tag {
+      background: var(--horror-dark);
+      color: var(--horror-yellow);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text-dark);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 3px solid var(--horror-yellow);
+    }
+
+    .info-card h2 {
+      font-family: 'Exo 2', sans-serif;
+      color: var(--horror-dark);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .warning-box {
+      background: #fff3cd;
+      border-left: 5px solid #ff6b6b;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+    }
+
+    .warning-box strong {
+      color: #ff6b6b;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-item {
+      background: linear-gradient(135deg, var(--horror-yellow), var(--pista-green));
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 2px solid var(--horror-dark);
+    }
+
+    .feature-item i {
+      font-size: 2.5rem;
+      color: var(--horror-dark);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--horror-dark);
+    }
+
+    .stat-box .label {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .glitch {
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { transform: translateX(0); }
+      92% { transform: translateX(-2px); }
+      94% { transform: translateX(2px); }
+      96% { transform: translateX(-2px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="game-header">
+      <i class="bi bi-eye glitch" style="font-size: 5rem; color: var(--horror-dark);"></i>
+      <h1 class="glitch">BACKROOMS ESCAPE</h1>
+      <p class="lead" style="font-size: 1.3rem; font-weight: 700;">
+        Survive the Endless Maze of Horror
+      </p>
+      <div class="game-tags">
+        <span class="tag">HORROR</span>
+        <span class="tag">SURVIVAL</span>
+        <span class="tag">PSYCHOLOGICAL</span>
+        <span class="tag">SINGLE-PLAYER</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="warning-box">
+        <strong><i class="bi bi-exclamation-triangle-fill"></i> WARNING:</strong> 
+        This game contains intense horror elements, psychological tension, and disturbing imagery. 
+        Not recommended for players sensitive to claustrophobia or anxiety-inducing environments.
+      </div>
+      
+      <h2>About the Game</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8;">
+        You've no-clipped through reality and found yourself in the Backrooms—an endless maze of 
+        yellowed wallpaper, fluorescent lights, and the constant hum of electricity. Navigate through 
+        multiple levels of this liminal space, each more disturbing than the last. Solve puzzles, avoid 
+        entities, and find your way back to reality... if you can. The Backrooms are infinite, but your 
+        sanity is not.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h2>Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <i class="bi bi-layers"></i>
+          <h4>Multiple Levels</h4>
+          <p>Explore various levels of the Backrooms, each with unique dangers and mysteries</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-soundwave"></i>
+          <h4>Atmospheric Audio</h4>
+          <p>Immersive sound design that will keep you on edge throughout your journey</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-lightning"></i>
+          <h4>Sanity System</h4>
+          <p>Manage your mental state as reality bends around you</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-puzzle"></i>
+          <h4>Environmental Puzzles</h4>
+          <p>Solve cryptic puzzles to progress through the levels</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-eye-slash"></i>
+          <h4>Hostile Entities</h4>
+          <p>Avoid or outsmart the creatures that lurk in the endless hallways</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-map"></i>
+          <h4>Procedural Generation</h4>
+          <p>Every playthrough offers a unique maze layout</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>The Levels</h2>
+      <div class="row mt-3">
+        <div class="col-md-6 mb-3">
+          <div class="p-3" style="background: var(--horror-yellow); border-radius: 10px; border: 2px solid var(--horror-dark);">
+            <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">
+              Level 0: The Lobby
+            </h4>
+            <p>Endless mono-yellow rooms with buzzing lights and damp carpet</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="p-3" style="background: var(--horror-yellow); border-radius: 10px; border: 2px solid var(--horror-dark);">
+            <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">
+              Level 1: The Habitable Zone
+            </h4>
+            <p>Concrete maintenance hallways with limited supplies</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="p-3" style="background: var(--horror-yellow); border-radius: 10px; border: 2px solid var(--horror-dark);">
+            <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">
+              Level 2: Pipe Dreams
+            </h4>
+            <p>Dark tunnels with exposed pipes and mechanical sounds</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="p-3" style="background: var(--horror-yellow); border-radius: 10px; border: 2px solid var(--horror-dark);">
+            <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">
+              Level ???: Unknown
+            </h4>
+            <p>Discover hidden levels with unspeakable horrors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>Game Statistics</h2>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="number">∞</div>
+          <div class="label">Rooms</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">15+</div>
+          <div class="label">Levels</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">8-12</div>
+          <div class="label">Hours to Complete</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">4.7/5</div>
+          <div class="label">Horror Rating</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>System Requirements</h2>
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">Minimum</h4>
+          <ul style="line-height: 2;">
+            <li><strong>OS:</strong> Windows 10 64-bit</li>
+            <li><strong>Processor:</strong> Intel Core i5-6600 / AMD Ryzen 3 1200</li>
+            <li><strong>Memory:</strong> 8 GB RAM</li>
+            <li><strong>Graphics:</strong> NVIDIA GTX 960 / AMD RX 560</li>
+            <li><strong>Storage:</strong> 15 GB available space</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4 style="color: var(--horror-dark); font-family: 'Exo 2', sans-serif; font-weight: 700;">Recommended</h4>
+          <ul style="line-height: 2;">
+            <li><strong>OS:</strong> Windows 10/11 64-bit</li>
+            <li><strong>Processor:</strong> Intel Core i7-8700 / AMD Ryzen 5 3600</li>
+            <li><strong>Memory:</strong> 16 GB RAM</li>
+            <li><strong>Graphics:</strong> NVIDIA GTX 1660 / AMD RX 5600 XT</li>
+            <li><strong>Storage:</strong> 15 GB SSD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card text-center">
+      <h2>Enter the Backrooms</h2>
+      <p class="mb-3" style="font-style: italic; color: var(--horror-dark);">
+        "If you're not careful and no-clip out of reality in the wrong areas..."
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <button class="btn btn-lg" style="background: var(--horror-dark); color: var(--horror-yellow); font-weight: 700;">PC (Steam)</button>
+        <button class="btn btn-lg" style="background: var(--horror-dark); color: var(--horror-yellow); font-weight: 700;">Epic Games</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

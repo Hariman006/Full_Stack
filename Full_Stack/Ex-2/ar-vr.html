@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AR / VR Experiences - TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --off-white: #F8F9FA;
+      --text-dark: #1a1a1a;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--pista-green) 0%, var(--dark-pista) 100%);
+      color: var(--text-dark);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .back-btn {
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--dark-pista);
+      transform: translateX(-5px);
+      color: white;
+    }
+
+    .detail-card {
+      background: var(--white);
+      border: 3px solid var(--accent-green);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      color: var(--accent-green);
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .icon-large {
+      font-size: 5rem;
+      color: var(--accent-green);
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pista-green);
+      font-size: 1.1rem;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list i {
+      color: var(--accent-green);
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="detail-card text-center">
+      <i class="bi bi-headset-vr icon-large"></i>
+      <h1>AR / VR Experiences</h1>
+      <p class="lead mb-4">
+        Step into the future with our immersive next-gen gaming worlds. TechNova Studios 
+        creates cutting-edge AR and VR experiences that transport players into fully 
+        realized virtual environments with unprecedented immersion.
+      </p>
+
+      <div class="text-start mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">What We Deliver:</h3>
+        <ul class="feature-list">
+          <li><i class="bi bi-check-circle-fill"></i> 360-degree immersive environments</li>
+          <li><i class="bi bi-check-circle-fill"></i> Hand tracking and motion controls</li>
+          <li><i class="bi bi-check-circle-fill"></i> Spatial audio for realistic soundscapes</li>
+          <li><i class="bi bi-check-circle-fill"></i> Mixed reality gameplay mechanics</li>
+          <li><i class="bi bi-check-circle-fill"></i> Multi-player VR social experiences</li>
+          <li><i class="bi bi-check-circle-fill"></i> Low-latency, high-frame-rate performance</li>
+          <li><i class="bi bi-check-circle-fill"></i> AR mobile integration</li>
+        </ul>
+      </div>
+
+      <div class="mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Platforms:</h3>
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+          <span class="badge bg-success p-3" style="font-size: 1rem;">Meta Quest 3</span>
+          <span class="badge bg-success p-3" style="font-size: 1rem;">PlayStation VR2</span>
+          <span class="badge bg-success p-3" style="font-size: 1rem;">HTC Vive</span>
+          <span class="badge bg-success p-3" style="font-size: 1rem;">Apple Vision Pro</span>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Experience Types:</h3>
+        <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
+          <span class="badge" style="background: var(--accent-green); padding: 0.5rem 1rem;">Horror VR</span>
+          <span class="badge" style="background: var(--accent-green); padding: 0.5rem 1rem;">Adventure</span>
+          <span class="badge" style="background: var(--accent-green); padding: 0.5rem 1rem;">Simulation</span>
+          <span class="badge" style="background: var(--accent-green); padding: 0.5rem 1rem;">Rhythm Games</span>
+          <span class="badge" style="background: var(--accent-green); padding: 0.5rem 1rem;">Educational</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

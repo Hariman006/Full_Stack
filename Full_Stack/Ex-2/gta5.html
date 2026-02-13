@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GTA 5 - TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --text-dark: #1a1a1a;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a1a1a 0%, var(--accent-green) 100%);
+      color: var(--white);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin-top: 50px;
+    }
+
+    .back-btn {
+      background: var(--pista-green);
+      color: var(--text-dark);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--white);
+      transform: translateX(-5px);
+    }
+
+    .game-header {
+      background: linear-gradient(135deg, var(--pista-green), var(--white));
+      color: var(--text-dark);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      text-align: center;
+      border: 4px solid var(--accent-green);
+    }
+
+    .game-header h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: var(--accent-green);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    }
+
+    .game-tags {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .tag {
+      background: var(--accent-green);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--text-dark);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 3px solid var(--pista-green);
+    }
+
+    .info-card h2 {
+      font-family: 'Exo 2', sans-serif;
+      color: var(--accent-green);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-item {
+      background: var(--pista-green);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 2px solid var(--accent-green);
+    }
+
+    .feature-item i {
+      font-size: 2.5rem;
+      color: var(--accent-green);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-box .number {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-green);
+    }
+
+    .stat-box .label {
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="game-header">
+      <i class="bi bi-joystick" style="font-size: 5rem; color: var(--accent-green);"></i>
+      <h1>GTA 5</h1>
+      <p class="lead" style="font-size: 1.3rem; font-weight: 700;">
+        Open-World Action-Adventure Masterpiece
+      </p>
+      <div class="game-tags">
+        <span class="tag">ACTION</span>
+        <span class="tag">OPEN WORLD</span>
+        <span class="tag">MULTIPLAYER</span>
+        <span class="tag">STORY-DRIVEN</span>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>About the Game</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8;">
+        Experience the ultimate open-world adventure in Los Santos, a sprawling sun-soaked metropolis 
+        full of self-help gurus, starlets, and fading celebrities struggling to stay relevant. Navigate 
+        through three distinct protagonists—Michael, Franklin, and Trevor—each with their own unique 
+        story and abilities. Whether you're pulling off heists, racing through the streets, or exploring 
+        the vast wilderness, GTA 5 delivers unparalleled freedom and excitement.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h2>Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <i class="bi bi-map"></i>
+          <h4>Massive Open World</h4>
+          <p>Explore a living, breathing world with endless possibilities and hidden secrets</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-people"></i>
+          <h4>Three Protagonists</h4>
+          <p>Switch between Michael, Franklin, and Trevor, each with unique abilities and storylines</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-bank"></i>
+          <h4>Epic Heists</h4>
+          <p>Plan and execute elaborate multi-stage heists with strategic planning and intense action</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-controller"></i>
+          <h4>GTA Online</h4>
+          <p>Ever-evolving multiplayer universe with constant updates and new content</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-car-front"></i>
+          <h4>Vehicle Collection</h4>
+          <p>Drive, fly, or pilot hundreds of vehicles including cars, planes, boats, and helicopters</p>
+        </div>
+        <div class="feature-item">
+          <i class="bi bi-music-note-beamed"></i>
+          <h4>Dynamic Radio</h4>
+          <p>17 radio stations featuring 240+ licensed tracks across multiple genres</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>Game Statistics</h2>
+      <div class="stats">
+        <div class="stat-box">
+          <div class="number">200+</div>
+          <div class="label">Missions</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">100+</div>
+          <div class="label">Vehicles</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">50+</div>
+          <div class="label">Hours Gameplay</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">97/100</div>
+          <div class="label">Metacritic Score</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>System Requirements</h2>
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <h4 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Minimum</h4>
+          <ul style="line-height: 2;">
+            <li><strong>OS:</strong> Windows 10 64-bit</li>
+            <li><strong>Processor:</strong> Intel Core i5 3470 / AMD FX-8350</li>
+            <li><strong>Memory:</strong> 8 GB RAM</li>
+            <li><strong>Graphics:</strong> NVIDIA GTX 660 2GB / AMD HD 7870 2GB</li>
+            <li><strong>Storage:</strong> 72 GB available space</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h4 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Recommended</h4>
+          <ul style="line-height: 2;">
+            <li><strong>OS:</strong> Windows 10 64-bit</li>
+            <li><strong>Processor:</strong> Intel Core i7 4770K / AMD Ryzen 5 3600</li>
+            <li><strong>Memory:</strong> 16 GB RAM</li>
+            <li><strong>Graphics:</strong> NVIDIA GTX 1060 6GB / AMD RX 580 8GB</li>
+            <li><strong>Storage:</strong> 72 GB SSD recommended</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card text-center">
+      <h2>Available Now</h2>
+      <p class="mb-3">Get GTA 5 on your favorite platform</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <button class="btn btn-lg" style="background: var(--accent-green); color: white; font-weight: 700;">PC (Steam)</button>
+        <button class="btn btn-lg" style="background: var(--accent-green); color: white; font-weight: 700;">PlayStation 5</button>
+        <button class="btn btn-lg" style="background: var(--accent-green); color: white; font-weight: 700;">Xbox Series X/S</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

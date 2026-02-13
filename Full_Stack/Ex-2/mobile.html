@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Games - TechNova Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --pista-green: #C1E1C1;
+      --dark-pista: #9BC49B;
+      --accent-green: #6B9B6B;
+      --white: #FFFFFF;
+      --off-white: #F8F9FA;
+      --text-dark: #1a1a1a;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--white) 0%, var(--pista-green) 100%);
+      color: var(--text-dark);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin-top: 50px;
+    }
+
+    .back-btn {
+      background: var(--accent-green);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Exo 2', sans-serif;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-btn:hover {
+      background: var(--dark-pista);
+      transform: translateX(-5px);
+      color: white;
+    }
+
+    .detail-card {
+      background: var(--white);
+      border: 3px solid var(--accent-green);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      color: var(--accent-green);
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .icon-large {
+      font-size: 5rem;
+      color: var(--accent-green);
+      margin-bottom: 2rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pista-green);
+      font-size: 1.1rem;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list i {
+      color: var(--accent-green);
+      margin-right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn">
+      <i class="bi bi-arrow-left"></i> Back to Home
+    </a>
+
+    <div class="detail-card text-center">
+      <i class="bi bi-phone icon-large"></i>
+      <h1>Mobile Games</h1>
+      <p class="lead mb-4">
+        We create optimized, fast, and addictive mobile gaming experiences designed to captivate 
+        players on-the-go. Our mobile titles combine engaging gameplay with stunning visuals 
+        optimized for smartphones and tablets.
+      </p>
+
+      <div class="text-start mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">What We Deliver:</h3>
+        <ul class="feature-list">
+          <li><i class="bi bi-check-circle-fill"></i> Touch-optimized intuitive controls</li>
+          <li><i class="bi bi-check-circle-fill"></i> Lightweight downloads with amazing graphics</li>
+          <li><i class="bi bi-check-circle-fill"></i> Offline and online multiplayer modes</li>
+          <li><i class="bi bi-check-circle-fill"></i> Battery-efficient optimization</li>
+          <li><i class="bi bi-check-circle-fill"></i> Social features and leaderboards</li>
+          <li><i class="bi bi-check-circle-fill"></i> Regular events and seasonal content</li>
+          <li><i class="bi bi-check-circle-fill"></i> Cloud save functionality</li>
+        </ul>
+      </div>
+
+      <div class="mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Platforms:</h3>
+        <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+          <span class="badge bg-success p-3" style="font-size: 1rem;">iOS (App Store)</span>
+          <span class="badge bg-success p-3" style="font-size: 1rem;">Android (Play Store)</span>
+          <span class="badge bg-success p-3" style="font-size: 1rem;">Cross-Platform</span>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <h3 style="color: var(--accent-green); font-family: 'Exo 2', sans-serif; font-weight: 700;">Game Genres:</h3>
+        <div class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
+          <span class="badge" style="background: var(--dark-pista); padding: 0.5rem 1rem;">Battle Royale</span>
+          <span class="badge" style="background: var(--dark-pista); padding: 0.5rem 1rem;">Puzzle</span>
+          <span class="badge" style="background: var(--dark-pista); padding: 0.5rem 1rem;">Action</span>
+          <span class="badge" style="background: var(--dark-pista); padding: 0.5rem 1rem;">Strategy</span>
+          <span class="badge" style="background: var(--dark-pista); padding: 0.5rem 1rem;">Racing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
